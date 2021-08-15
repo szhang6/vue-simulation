@@ -11,6 +11,21 @@ class Vue {
 	}
 	_proxyData(data) {
 		//遍历data中的所有属性
-		//把data中的属性注入到vue实例中
+		Object.keys(data).forEach(key => {
+			//把data中的属性注入到vue实例中
+			Object.defineProperties(this, key, {
+				enumerable: true,
+				configurable: true,
+				get() {
+					return data[key]
+				}
+				set(newValue) {
+					if (newValue === data[key]) {
+						return
+					}
+					data[key] = newValue
+				}
+			})
+		})
 	}
 }
