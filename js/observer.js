@@ -1,6 +1,6 @@
 class Observer {
 	constructor(data) {
-	    this.walk(data)
+		this.walk(data)
 	}
 	walk(data) {
 		//判断data是否是对象
@@ -13,6 +13,7 @@ class Observer {
 		})
 	}
 	defineReactive(obj, key, val) {
+		let that = this
 		Object.defineProperty(obj, key, {
 			enumerable: true,
 			configurable: true,
@@ -24,6 +25,7 @@ class Observer {
 					return
 				}
 				val = newValue
+				that.walk(newValue)
 			}
 		})
 	}
