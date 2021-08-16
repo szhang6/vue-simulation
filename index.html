@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Vue Simulation</title>
-	</head>
-	<body>
-		<div class="app">
-			<h1>差值表达值</h1>
-			<h3>{{msg}}</h3>
-			<h3>{{count}}</h3>
-			<h1>v-text</h1>
-			<div v-text="msg"></div>
-			<h1>v-model</h1>
-			<input type="text" v-model="msg">
-			<input type="text" v-model="count">
-		</div>
-		<script src='./js/observer.js'></script>
-		<script src='./js/vue.js'></script>
-		<script>
-			let vm = new Vue({
-				el: '#app',
-				data: {
-					msg: 'Hello Vue',
-					count: 100
-				}
-			})
-		</script>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Vue Simulation</title>
+  </head>
+  <body>
+    <div class="app">
+      <h1>差值表达值</h1>
+      <h3>{{msg}}</h3>
+      <h3>{{count}}</h3>
+      <h1>v-text</h1>
+      <div v-text="msg"></div>
+      <h1>v-model</h1>
+      <input type="text" v-model="msg" />
+      <input type="text" v-model="count" />
+    </div>
+    <script src="./js/dep.js"></script>
+    <script src="./js/watcher.js"></script>
+    <script src="./js/compiler.js"></script>
+    <script src="./js/observer.js"></script>
+    <script src="./js/vue.js"></script>
+    <script>
+      let vm = new Vue({
+        el: "#app",
+        data: {
+          msg: "Hello Vue",
+          count: 100,
+        },
+      });
+    </script>
+  </body>
 </html>
